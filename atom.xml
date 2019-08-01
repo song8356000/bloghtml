@@ -1,0 +1,25 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://my.area.net">
+
+ <title>小哈龙</title>
+ <link href="http://my.area.net" rel="self"/>
+ <link href="http://my.area.net"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://my.area.net//</id>
+ <author>
+   <name>小哈龙</name>
+   <email>452227021@qq.com</email>
+ </author>
+
+ {% for post in site.posts %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://my.area.net/{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://my.area.net/{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+</feed>
